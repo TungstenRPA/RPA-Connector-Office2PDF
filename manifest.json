@@ -1,0 +1,89 @@
+{
+	"actions": [
+		{
+			"name": "send_mail",
+			"type": "python",
+			"parameters": [
+				{
+					"name": "mailbox",
+					"type": "string"					
+				},
+				{
+					"name": "to",
+					"type": "string"					
+				},
+				{
+					"name": "subject",
+					"type": "string"				
+				},
+				{
+					"name": "body",
+					"type": "string",
+					"default": "None"			
+				},
+				{
+					"name": "isHtml",
+					"type": "number",
+					"default": 0,
+					"min": 0,
+					"max": 1			
+				}
+			],
+			"response": [
+				{
+					"name": "response",
+					"type": "string"
+				}
+			],
+			"commandline": [
+				"import outlook as o",
+				"rpa_return = {'response' : o.send_mail(%1, %2, %3, %4, %5) }"
+			]
+		},{
+			"name": "send_mail2",
+			"type": "python",
+			"parameters": [
+				{
+					"name": "mailbox",
+					"type": "string"					
+				},
+				{
+					"name": "to",
+					"type": "string"					
+				},
+				{
+					"name": "subject",
+					"type": "string"				
+				},
+				{
+					"name": "body",
+					"type": "string",
+					"default": "None"			
+				},
+				{
+					"name": "isHtml",
+					"type": "number",
+					"default": 0,
+					"min": 0,
+					"max": 1		
+				},
+				{
+					"name": "attachments",
+					"type": "string"		
+				}
+			],
+			"response": [
+				{
+					"name": "response",
+					"type": "string"
+				}
+			],
+			"commandline": [
+				"import outlook as o",
+				"rpa_return = {'response' : o.send_mail2(%1, %2, %3, %4, %5, %6) }"
+			]
+		}
+	],
+	"name": "outlook",
+	"python-support": 3
+}
