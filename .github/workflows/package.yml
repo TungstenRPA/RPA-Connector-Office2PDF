@@ -1,2 +1,13 @@
-- name: Zip Release
-  uses: TheDoctor0/zip-release@v0.2.1
+name: Zip Release
+on: [push]
+jobs:
+  build:
+    name: build     
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      name: zip everything
+    - uses: TheDoctor0/zip-release@v0.2.1
+      with:
+        filename: 'OpenOffice.connector'
+        exclusions: '*.git* /*node_modules/* .editorconfig'
