@@ -1,32 +1,23 @@
 {
 	"actions": [
 		{
-			"name": "send_mail",
+			"name": "word2pdf",
 			"type": "python",
 			"parameters": [
 				{
-					"name": "mailbox",
+					"name": "sourcefile",
 					"type": "string"					
 				},
 				{
-					"name": "to",
+					"name": "targetfile",
 					"type": "string"					
 				},
 				{
-					"name": "subject",
-					"type": "string"				
-				},
-				{
-					"name": "body",
-					"type": "string",
-					"default": "None"			
-				},
-				{
-					"name": "isHtml",
+					"name": "overwrite",
 					"type": "number",
-					"default": 0,
+					"default" : 0,
 					"min": 0,
-					"max": 1			
+					"max": 1				
 				}
 			],
 			"response": [
@@ -36,40 +27,28 @@
 				}
 			],
 			"commandline": [
-				"import outlook as o",
-				"rpa_return = {'response' : o.send_mail(%1, %2, %3, %4, %5) }"
+				"import word2pdf as w",
+				"rpa_return = {'response' : w.word2pdf(%1, %2, %3) }"
 			]
-		},{
-			"name": "send_mail2",
+		},
+		{
+			"name": "powerpoint2pdf",
 			"type": "python",
 			"parameters": [
 				{
-					"name": "mailbox",
+					"name": "sourcefile",
 					"type": "string"					
 				},
 				{
-					"name": "to",
+					"name": "targetfile",
 					"type": "string"					
 				},
 				{
-					"name": "subject",
-					"type": "string"				
-				},
-				{
-					"name": "body",
-					"type": "string",
-					"default": "None"			
-				},
-				{
-					"name": "isHtml",
+					"name": "overwrite",
 					"type": "number",
-					"default": 0,
+					"default" : 0,
 					"min": 0,
-					"max": 1		
-				},
-				{
-					"name": "attachments",
-					"type": "string"		
+					"max": 1					
 				}
 			],
 			"response": [
@@ -79,11 +58,42 @@
 				}
 			],
 			"commandline": [
-				"import outlook as o",
-				"rpa_return = {'response' : o.send_mail2(%1, %2, %3, %4, %5, %6) }"
+				"import ppt2pdf as p",
+				"rpa_return = {'response' : p.ppt2pdf(%1, %2, %3) }"
+			]
+		},
+		{
+			"name": "excel2pdf",
+			"type": "python",
+			"parameters": [
+				{
+					"name": "sourcefile",
+					"type": "string"					
+				},
+				{
+					"name": "targetfile",
+					"type": "string"					
+				},
+				{
+					"name": "overwrite",
+					"type": "number",
+					"default" : 0,
+					"min": 0,
+					"max": 1				
+				}
+			],
+			"response": [
+				{
+					"name": "response",
+					"type": "string"
+				}
+			],
+			"commandline": [
+				"import excel2pdf as p",
+				"rpa_return = {'response' : p.excel2pdf(%1, %2, %3) }"
 			]
 		}
 	],
-	"name": "outlook",
+	"name": "office2pdf",
 	"python-support": 3
 }
